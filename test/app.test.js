@@ -1,8 +1,8 @@
 'use strict';
 
-import {App} from '..';
-import supertest from 'supertest';
-import {expect} from 'chai';
+const {App} = require('..');
+const supertest = require('supertest');
+const {expect} = require('chai');
 
 let app = null;
 

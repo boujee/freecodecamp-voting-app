@@ -1,6 +1,6 @@
 'use strict';
 
-import {App} from '..';
+const {App} = require('.');
 
 async function boot() {
   const app = await App.start(process.env);
