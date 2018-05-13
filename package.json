@@ -1,0 +1,24 @@
+{
+  "name": "freecodecamp-voting-app",
+  "private": true,
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel lib -d dist",
+    "start": "babel lib -d dist && node dist/server.js",
+    "test": "babel lib -d dist && mocha --require babel-register"
+  },
+  "dependencies": {
+    "express": "4.*",
+    "babel-cli": "6.*",
+    "babel-preset-env": "1.*",
+    "mongoose": "5.*"
+  },
+  "devDependencies": {
+    "mocha": "5.*",
+    "chai": "4.*",
+    "babel-register": "6.*",
+    "supertest": "3.*",
+    "nodemon": "1.*"
+  }
+}
