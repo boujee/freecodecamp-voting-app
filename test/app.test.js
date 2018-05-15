@@ -1,23 +1,20 @@
 'use strict';
 
-const {App} = require('..');
+const {App, User} = require('..');
 const supertest = require('supertest');
 const {expect} = require('chai');
 
 let app = null;
 
 const request = (a = app) => supertest(app.server);
-async function clearDB() {
-  await app.User.remove();
-}
 
 before(async () => {
   app = await App.start(process.env);
-  await clearDB();
+  await User.remove();
 });
 
 afterEach(async () => {
-  await clearDB();
+  await User.remove();
 });
 
 after(async () => {
@@ -26,8 +23,7 @@ after(async () => {
 
 describe('POST /signin', () => {
   beforeEach(async () => {
-    const u = new app.User({username: 'test', password: 'mypass', email: 'email'});
-    await u.save();
+    await (new User({username: 'test', password: 'mypass', email: 'email'})).save();
   });
   it('sends 401 when passwords dont match', () =>
     request().post('/signin')
@@ -48,8 +44,7 @@ describe('POST /signin', () => {
 
 describe('POST /signup', () => {
   beforeEach(async () => {
-    const u = new app.User({username: 'test', password: 'mypass', email: 'email'});
-    await u.save();
+    await (new User({username: 'test', password: 'mypass', email: 'email'})).save();
   });
   it('fails if username is in use', async () => {
     const res = await request().post('/signup')
