@@ -2,13 +2,21 @@
   "name": "freecodecamp-voting-app",
   "private": true,
   "version": "1.0.0",
-  "engines": {"node": ">=9.*"},
+  "engines": {
+    "node": ">=9.*"
+  },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
     "express": "4.*",
-    "mongoose": "5.*"
+    "express-session": "1.*",
+    "mongoose": "5.*",
+    "mongoose-unique-validator": "2.*",
+    "bcrypt": "2.*",
+    "passport": "^0.4.0",
+    "passport-local": "1.*",
+    "body-parser": "1.*"
   },
   "devDependencies": {
     "mocha": "5.*",
